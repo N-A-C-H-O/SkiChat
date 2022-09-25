@@ -1,0 +1,4 @@
+.sidebar {
+    background-color: yellow;
+    grid-column: 1 / 2;
+}

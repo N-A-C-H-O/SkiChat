@@ -60,3 +60,22 @@ form button:hover {
 .form-link {
     color: white;
 }
+
+/* Home */
+
+.home {
+    background-color: red;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container {
+    width: 65%;
+    height: 80%;
+    border: 1px solid white;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
