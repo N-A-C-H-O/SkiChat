@@ -2,3 +2,34 @@
     background-color: yellowgreen;
     grid-column: 2 / 4;
 }
+
+.chat-info {
+    background-color: red;
+    height: 5%;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-icons {
+    width: 15%;
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap: 1.3em;
+}
+
+.chat-icons span {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.chat-conversation {
+    background-color: coral;
+    height: 85%;
+    display: grid;
+    grid-template-rows: 97% auto;
+    grid-template-areas: "messages"
+    "input";
+}

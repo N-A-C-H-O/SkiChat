@@ -1,0 +1,33 @@
+.input {
+    background-color: white;
+    padding: 1em;
+    grid-area: "input";
+    display: flex;
+    justify-content: space-between;
+}
+
+.input input {
+    width: 100%;
+    border: none;
+}
+
+.input input:focus {
+    outline: none;
+}
+
+.send {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    font-size: 1.4em;
+}
+
+.send input {
+    display: none;
+}
+
+.send span {
+    cursor: pointer;
+}
