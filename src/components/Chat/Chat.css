@@ -1,27 +1,28 @@
 .chat {
     background-color: yellowgreen;
+    flex: 2;
 }
 
 .chat-info {
     background-color: red;
-    height: 6%;
-    padding: 1em;
+    height: 50px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .chat-info h5 {
-    padding: 0.5em;
+    padding: 10px;
     font-size: 1.2em;
 }
 
 .chat-icons {
     width: 20%;
-    padding: 0.5em;
+    padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 1.3em;
+    gap: 20px;
 }
 
 .chat-icons span {
