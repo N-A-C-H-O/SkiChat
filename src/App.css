@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-form {
+.form-wrapper form {
     background-color: #8947d9;
     padding: 2em;
     width: 500px;
@@ -19,7 +19,7 @@ form {
     box-shadow: 3px 3px 10px 3px #ddd;
 }
 
-form button {
+.form-wrapper form button {
     width: 45%;
     padding: 0.7em;
     border: none;
@@ -29,7 +29,7 @@ form button {
     margin: 2em 0; 
 }
 
-form button:hover {
+.form-wrapper form button:hover {
     background-color: #3b126cbb;
     cursor: pointer;
 }
@@ -64,7 +64,7 @@ form button:hover {
 /* Home */
 
 .home {
-    background-color: red;
+    background-color: rgb(211, 206, 206);
     height: 100vh;
     display: flex;
     justify-content: center;
