@@ -57,6 +57,14 @@
     outline: none;
 }
 
+.form-section label[for="userAvatar"] {
+    cursor: pointer;
+}
+
+.form-section input[type="file"] {
+    display: none;
+}
+
 .form-link {
     color: white;
 }
