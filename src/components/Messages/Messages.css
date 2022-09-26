@@ -1,5 +1,6 @@
 .messages {
     background-color: antiquewhite;
     padding: 1em;
-    grid-area: "messages";
+    height: 36em;
+    overflow-y: auto;
 }

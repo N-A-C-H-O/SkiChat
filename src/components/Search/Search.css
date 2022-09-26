@@ -1,13 +1,12 @@
-.search form {
-    background-color: rgb(92, 112, 105);
-    
+.search {
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
 }
 
 .search form input {
     width: 100%;
     padding: 1em;
     border: none;
-    border-bottom: 1px solid black;
 }
 
 .search form input:focus {
@@ -20,8 +19,8 @@
 }
 
 .user-chat img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
     padding: 1em;

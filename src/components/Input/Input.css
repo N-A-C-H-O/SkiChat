@@ -1,7 +1,6 @@
 .input {
     background-color: white;
     padding: 1em;
-    grid-area: "input";
     display: flex;
     justify-content: space-between;
 }
