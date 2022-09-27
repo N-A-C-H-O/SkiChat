@@ -1,10 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsBoxArrowInRight } from "react-icons/bs";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/Firebase";
+
 
 export const Login = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const inputEmail = e.target[0].value;
+        const inputPassword = e.target[1].value;
+        try {
+            await signInWithEmailAndPassword(auth, inputEmail, inputPassword);
+            navigate("/");
+            console.log('Entró')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return(
         <div className="form-wrapper">
-            <form autoComplete="off">
+            <form onSubmit={handleSubmit} autoComplete="off">
                 <div className="form-section">
                     <label htmlFor="nombre">Email</label>
                     <input id="nombre" type="email" placeholder="Ingrese su correo"/>

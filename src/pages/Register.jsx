@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { BiImageAdd } from "react-icons/bi";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -6,31 +6,37 @@ import { auth, storage, db } from "../utils/Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 
-
 export const Register = () => {
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const inputName = e.target[0].value;
-        const email = e.target[1].value;
-        const password = e.target[2].value;
-        const file = e.target[3].files[0];
+        const inputEmail = e.target[1].value;
+        const inputPassword = e.target[2].value;
+        const inputAvatar = e.target[3].files[0];
         try {
-            const res = await createUserWithEmailAndPassword(auth,email,password);
+            const res = await createUserWithEmailAndPassword(auth,inputEmail,inputPassword);
             const storageRef = ref(storage, inputName);
-            await uploadBytesResumable(storageRef, file).then(() => {
+            await uploadBytesResumable(storageRef, inputAvatar).then(() => {
                 getDownloadURL(storageRef).then(async (downloadURL) => {
                     try {
                         await updateProfile(res.user, {
-                            inputName,
+                            displayName: inputName,
                             photoURL: downloadURL,
                         });
                         await setDoc(doc(db, "users", res.user.uid),{
                             uid: res.user.uid,
-                            inputName,
-                            email,
+                            name: inputName,
+                            email: inputEmail,
                             photoURL: downloadURL,
                         });
+
+                        await setDoc(doc(db, "userChats", res.user.uid), {});
+
+                        navigate("/");
+
                     } catch(error) {
 
                     }
