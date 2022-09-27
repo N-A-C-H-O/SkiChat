@@ -3,13 +3,13 @@
     margin-bottom: 1em;
 }
 
-.search form input {
+.search-form input {
     padding: 10px;
     width: 100%;
     border: none;
 }
 
-.search form input:focus {
+.search-form input:focus {
     outline: none;
 }
 

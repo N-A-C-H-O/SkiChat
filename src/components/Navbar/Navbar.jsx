@@ -2,20 +2,20 @@ import "./Navbar.css";
 import profileImg from "./download.jpg";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/Firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Navbar = () => {
 
-  const salir = () => {
-    signOut(auth);
-  }
+  const {currentUser} = useContext(AuthContext)
 
   return (
     <div className="navbar">
       <h2 className="logo">SkiChat</h2>
       <div className="user">
-        <img src={profileImg} alt="Imagen" />
-        <span>Nombre</span>
-        <button onClick={salir}>Salir</button>
+        <img src={currentUser.photoURL} alt="Imagen" />
+        <span>{currentUser.displayName}</span>
+        <button onClick={() => signOut(auth)}>Salir</button>
       </div>
     </div>
   )
