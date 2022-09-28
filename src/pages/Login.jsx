@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-
+import Logo from "../assets/images/logo.png";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -20,7 +20,10 @@ export const Login = () => {
     }
 
     return(
-        <div className="form-wrapper">
+        <div className="form-wrapper login">
+            <Link to="/">
+                <img src={Logo} alt="Logo" className="logo" />
+            </Link>
             <form onSubmit={handleSubmit} autoComplete="off">
                 <div className="form-section">
                     <label htmlFor="nombre">Email</label>

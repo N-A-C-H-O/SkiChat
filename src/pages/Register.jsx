@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../utils/Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import Logo from "../assets/images/logo.png";
 
 export const Register = () => {
 
@@ -49,7 +50,10 @@ export const Register = () => {
     }
 
     return(
-        <div className="form-wrapper">
+        <div className="form-wrapper register">
+            <Link to="/">
+                <img src={Logo} alt="Logo" className="logo" />
+            </Link>
             <form onSubmit={handleSubmit} autoComplete="off">
                 <div className="form-section">
                     <label htmlFor="nombre">Nombre</label>
@@ -64,7 +68,7 @@ export const Register = () => {
                     <input type="password" placeholder="Ingrese su contraseña"/>
                 </div>
                 <div className="form-section">
-                    <label htmlFor="userAvatar"><BiImageAdd/> Añadir avatar</label>
+                    <label htmlFor="userAvatar"><span className="avatar-icon"><BiImageAdd/></span>Añadir avatar</label>
                     <input type="file" id="userAvatar"/>
                 </div>
                 <button type="submit">Enviar</button>

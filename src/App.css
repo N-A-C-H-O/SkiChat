@@ -2,13 +2,27 @@
     background-color: #ffffff8f;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    /* flex-direction: column; */
     height: 100vh;
+}
+
+.login {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register {
+    justify-content: space-evenly;
+}
+
+.logo {
+    margin: -50px 0 80px 0;
 }
 
 .form-wrapper form {
     background-color: #8947d9;
-    padding: 2em;
+    padding: 25px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -27,6 +41,8 @@
     background-color: #3a126c;
     color: white;
     margin: 2em 0; 
+    font-weight: bold;
+    transition: all 0.5s;
 }
 
 .form-wrapper form button:hover {
@@ -44,29 +60,54 @@
 .form-section label {
     display: block;
     margin-bottom: 1em;
+    font-size: 17px;
+    
 }
 
 .form-section input {
     padding: 0.8em 0 0.8em 1em;
     width: 95%;
+    display: block;
     border-radius: 10px;
     border: none;
+    font-size: 15px;
+}
+
+.form-section input::placeholder {
+    font-size: 15px;
+    color: #717171;
 }
 
 .form-section input:focus {
-    outline: none;
+    outline: 3px solid #551b9c;
+}
+
+.form-section input:focus::placeholder {
+    color: #717171a4;
 }
 
 .form-section label[for="userAvatar"] {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+    width: 40%;
+    margin: 0 auto;
 }
 
 .form-section input[type="file"] {
     display: none;
 }
 
+.avatar-icon {
+    font-size: 50px;
+}
+
 .form-link {
     color: white;
+    font-weight: bold;
 }
 
 /* Home */
