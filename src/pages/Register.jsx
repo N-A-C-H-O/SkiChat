@@ -57,15 +57,15 @@ export const Register = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
                 <div className="form-section">
                     <label htmlFor="nombre">Nombre</label>
-                    <input type="text" placeholder="Ingrese su usuario"/>
+                    <input type="text" placeholder="Ingrese su usuario" required/>
                 </div>
                 <div className="form-section">
                     <label htmlFor="nombre">Email</label>
-                    <input type="email" placeholder="Ingrese su correo"/>
+                    <input type="email" placeholder="Ingrese su correo" required/>
                 </div>
                 <div className="form-section">
                     <label htmlFor="nombre">Contraseña</label>
-                    <input type="password" placeholder="Ingrese su contraseña"/>
+                    <input type="password" placeholder="Ingrese su contraseña" required/>
                 </div>
                 <div className="form-section">
                     <label htmlFor="userAvatar"><span className="avatar-icon"><BiImageAdd/></span>Añadir avatar</label>
