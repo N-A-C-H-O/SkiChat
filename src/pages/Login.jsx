@@ -14,7 +14,6 @@ export const Login = () => {
         try {
             await signInWithEmailAndPassword(auth, inputEmail, inputPassword);
             navigate("/");
-            console.log('Entró')
         } catch (error) {
             console.log(error)
         }

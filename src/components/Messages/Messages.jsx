@@ -23,9 +23,7 @@ export const Messages = () => {
   return (
     <div className="messages">
       {
-        messages.map(message => {
-          <Message info={message} key={message.id}/>
-        })
+        messages.map(message => <Message info={message} key={message.id}/>)
       }
     </div>
   );

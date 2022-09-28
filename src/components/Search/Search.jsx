@@ -29,30 +29,28 @@ export const Search = () => {
   }
 
   const handleSelect = async () => {
-    const combinedId = currentUser.uid > user.uid ? 
-    currentUser.uid + user.uid :
-    user.uid + currentUser.uid;
+    const combinedId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
     try {
       const res = await getDoc(doc(db,"chats",combinedId));
       if(!res.exists()) {
         await setDoc(doc(db,"chats",combinedId),{messages: []});
 
         await updateDoc(doc(db,"userChats",currentUser.uid), {
-          [combinedId+".userInfo"]: {
+          [combinedId + ".userInfo"]: {
             uid: user.uid,
             name: user.name,
             photoURL: user.photoURL,
           }, 
-          [combinedId+".date"]: serverTimestamp()
+          [combinedId + ".date"]: serverTimestamp(),
         });
 
         await updateDoc(doc(db,"userChats",user.uid), {
-          [combinedId+".userInfo"]: {
+          [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
-            name: currentUser.name,
+            name: currentUser.displayName,
             photoURL: currentUser.photoURL,
           }, 
-          [combinedId+".date"]: serverTimestamp()
+          [combinedId + ".date"]: serverTimestamp(),
         });
 
       }
@@ -72,14 +70,13 @@ export const Search = () => {
         <button onClick={handleSearch}>Buscar</button>
       </div>
       {
-        user ? 
+        user && 
         <div className="user-chat" onClick={handleSelect}>
           <img src={user.photoURL} alt="Imagen usuario"/>
           <div className="user-chat-info">
             <h4>{user.name}</h4>
           </div>
-        </div> :
-        <span>No se encontró nada</span>
+        </div>
       }
     </div>
   )

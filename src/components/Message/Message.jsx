@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import "./Message.css";
@@ -7,16 +7,21 @@ export const Message = ({info}) => {
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+  const ref = useRef()
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({behavior: "smooth"})
+  },[info]);
 
   return (
-    <div className="message owner">
+    <div ref={ref} className={`message ${info.senderId === currentUser.uid && "owner"}`}>
       <div className="message-info">
-        <img src={s} alt="Imagen usuario" />
+        <img src={info.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="Imagen usuario" />
         <span>Ahora</span>
       </div>
       <div className="message-content">
-        <img src="https://cdn.shopify.com/s/files/1/0229/0839/files/bancos_de_imagenes_gratis.jpg?v=1630420628&width=1024" alt="" />
-        <p>Hola a todos!</p>
+        {info.img && <img src={info.img} alt="" />}
+        <p>{info.text}</p>
       </div>
     </div> 
   )

@@ -1,5 +1,4 @@
 import "./Navbar.css";
-import profileImg from "./download.jpg";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/Firebase";
 import { useContext } from "react";
