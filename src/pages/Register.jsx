@@ -8,10 +8,12 @@ import { doc, setDoc } from "firebase/firestore";
 import Logo from "../assets/images/logo.png";
 import { useState } from "react";
 import { Spinner } from "../components/Spinner/Spinner";
+import { ToastContainer } from "react-toastify";
+import { successNotif, errorNotif} from "../utils/Toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Register = () => {
     const [loading,setLoading] = useState(false);
-    const [error,setError] = useState(null)
 
     const navigate = useNavigate();
 
@@ -24,43 +26,68 @@ export const Register = () => {
         const inputAvatar = e.target[3].files[0];
         try {
             const res = await createUserWithEmailAndPassword(auth,inputEmail,inputPassword);
-            const storageRef = ref(storage, inputName);
-            await uploadBytesResumable(storageRef, inputAvatar).then(() => {
-                getDownloadURL(storageRef).then(async (downloadURL) => {
-                    try {
-                        await updateProfile(res.user, {
-                            displayName: inputName,
-                            photoURL: downloadURL,
-                        });
-                        await setDoc(doc(db, "users", res.user.uid),{
-                            uid: res.user.uid,
-                            name: inputName,
-                            email: inputEmail,
-                            photoURL: downloadURL,
-                        });
+            if (inputAvatar) {
+                const storageRef = ref(storage, inputName);
+                await uploadBytesResumable(storageRef, inputAvatar).then(() => {
+                    getDownloadURL(storageRef).then(async (downloadURL) => {
+                        try {
+                            await updateProfile(res.user, {
+                                displayName: inputName,
+                                photoURL: downloadURL,
+                            });
+                            await setDoc(doc(db, "users", res.user.uid),{
+                                uid: res.user.uid,
+                                name: inputName,
+                                email: inputEmail,
+                                photoURL: downloadURL,
+                            });
 
-                        await setDoc(doc(db, "userChats", res.user.uid), {});
+                            await setDoc(doc(db, "userChats", res.user.uid), {});
 
-                        navigate("/");
+                            successNotif('Cuenta creada exitosamente!');
 
-                    } catch(error) {
-                        console.log(error.code);
-                    }
+                            setTimeout(() => navigate("/"),2000);
+
+                        } catch(error) {
+                            console.log(error);
+                            errorNotif('Se produjo un error.');
+                        }
+                    });
                 });
-            });
+            } else {
+                await updateProfile(res.user, {
+                    displayName: inputName,
+                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=6b98067f-f334-49fb-b82e-44f0bae5ad33",
+                });
+                
+                await setDoc(doc(db, "users", res.user.uid),{
+                    uid: res.user.uid,
+                    name: inputName,
+                    email: inputEmail,
+                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=6b98067f-f334-49fb-b82e-44f0bae5ad33",
+                });
+    
+                await setDoc(doc(db, "userChats", res.user.uid), {});
+    
+                successNotif('Cuenta creada exitosamente!');
+    
+                setTimeout(() => navigate("/"),2000);
+            }
 
         } catch (error) {
+            console.log(error);
             switch (error.code) {
-                case "auth/invalid-email": 
-                    setError('Ingresa un email válido.');
+                case "auth/invalid-email":
+                    errorNotif('Ingresa un email válido.');  
                     break;
                 case "auth/weak-password":
-                    setError('La contraseña debe tener al menos 6 caracteres');
+                    errorNotif('La contraseña debe tener al menos 6 caracteres.');
                     break;
-                case "auth/email-already-exists": 
-                    setError('El email ingresado ya existe');
+                case "auth/email-already-in-use":
+                    errorNotif('El email ingresado ya existe.');
                     break;
-                default: setError('Se produjo un error');
+                default: 
+                    errorNotif('Se produjo un error.');
             };
         }
         setLoading(false)
@@ -94,7 +121,7 @@ export const Register = () => {
                     <button type="submit">Enviar</button>
                     <Link to="/login" className="form-link">Ya estoy registrado <BsBoxArrowInRight/></Link>
                 </form>
-                {error && <span>{error}</span>}
+                <ToastContainer/>
             </div>
         );
     }
