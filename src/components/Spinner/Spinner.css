@@ -1,16 +1,17 @@
-.loader {
+.loader{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 500px;
   margin: 0 auto;
+  height: 100vh;
 }
 
 .loader img {
   width: 200px;
   animation-name: loading;
-  animation-duration: 3s;
+  animation-duration: 1.2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
@@ -22,7 +23,6 @@
 }
 
 @keyframes loading {
-  50% {transform: rotate(360deg);}
-  70% {transform: rotate(360deg);}
-  100% {opacity: 1;}
+  from {transform: rotate(360deg);}
+  to {transform: rotate(0deg);}
 }
