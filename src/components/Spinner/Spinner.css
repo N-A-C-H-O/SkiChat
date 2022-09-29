@@ -1,0 +1,28 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.loader img {
+  width: 200px;
+  animation-name: loading;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.loader p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #3a126c;
+}
+
+@keyframes loading {
+  50% {transform: rotate(360deg);}
+  70% {transform: rotate(360deg);}
+  100% {opacity: 1;}
+}

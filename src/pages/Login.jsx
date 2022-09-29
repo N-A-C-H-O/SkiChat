@@ -3,6 +3,7 @@ import { BsBoxArrowInRight } from "react-icons/bs";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
 import Logo from "../assets/images/logo.png";
+import { Spinner } from "../components/Spinner/Spinner";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const Login = () => {
 
     return(
         <div className="form-wrapper login">
-            <Link to="/">
+            {/* <Link to="/">
                 <img src={Logo} alt="Logo" className="logo" />
             </Link>
             <form onSubmit={handleSubmit} autoComplete="off">
@@ -35,7 +36,8 @@ export const Login = () => {
                 </div>
                 <button type="submit">Enviar</button>
                 <Link to="/register" className="form-link">Aún no tengo cuenta <BsBoxArrowInRight/></Link>
-            </form>
+            </form> */}
+            <Spinner/>
         </div>
     )
 }
