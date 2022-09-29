@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
 import { db } from "../../utils/Firebase";
 import { AuthContext } from "../../context/AuthContext";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const Search = () => {
   const [username,setUsername] = useState("");
@@ -67,11 +68,11 @@ export const Search = () => {
     <div className="search">
       <div className="search-form">
         <input onChange={e => setUsername(e.target.value)} onKeyDown={handleKey} type="text" value={username} placeholder="Buscar usuario"/>
-        <button onClick={handleSearch}>Buscar</button>
+        <button onClick={handleSearch}><AiOutlineSearch/></button>
       </div>
       {
         user && 
-        <div className="user-chat" onClick={handleSelect}>
+        <div className="user-chat user-search" onClick={handleSelect}>
           <img src={user.photoURL} alt="Imagen usuario"/>
           <div className="user-chat-info">
             <h4>{user.name}</h4>
@@ -79,5 +80,5 @@ export const Search = () => {
         </div>
       }
     </div>
-  )
+  );
 }

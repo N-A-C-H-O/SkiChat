@@ -1,4 +1,5 @@
 .sidebar {
-    background-color: yellow;
     flex: 1;
+    background-color: #3a126c;
+    overflow-y: auto;
 }

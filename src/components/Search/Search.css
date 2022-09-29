@@ -1,12 +1,31 @@
 .search {
     border-bottom: 1px solid black;
     margin-bottom: 1em;
+    background-color: white;
+}
+
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .search-form input {
-    padding: 10px;
-    width: 100%;
+    padding: 20px;
+    width: 85%;
     border: none;
+}
+
+.search-form button {
+    border-radius: 50%;
+    padding: 5px 6px;
+    border: none;
+    margin-right: 15px;
+    color: #3a126c;
+    background-color: white;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .search-form input:focus {
@@ -18,15 +37,35 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.user-chat:hover {
+    background-color: #481883;
+}
+
+.user-search {
+    background-color: #e8e8e8;
+    transition: 0.5s all;
+}
+
+.user-search:hover {
+    background-color: #d5d5d5;
+}
+
+.user-search .user-chat-info {
+    color: #3a126c;
 }
 
 .user-chat img {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 50%;
 }
 
 .user-chat-info p {
     margin-top: -20px;
+    color: #ececec;
 }

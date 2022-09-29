@@ -1,21 +1,44 @@
 .navbar {
-    background-color: aqua;
+    background-color: #7525d0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
     padding: 10px;
+    color: white;
+}
+
+.logo-navbar {
+    width: 40%;
+    margin-left: 10px;
 }
 
 .user {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    padding: 10px;
 }
 
 .user img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.user button {
+    border: none;
+    border-radius: 50%;
+    background-color: #3b126cbb;
+    color: white;
+    padding: 5px 7px;
+    font-weight: bold;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.user button:hover {
+    background-color: #ba92ec;
+    color: #3b126cbb;
 }
