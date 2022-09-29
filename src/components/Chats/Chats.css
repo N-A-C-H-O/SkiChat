@@ -6,3 +6,8 @@
     cursor: pointer;
     color: white;
 }
+
+.user-chat-info p {
+    margin-top: -20px;
+    color: #ececec;
+}

@@ -38,7 +38,8 @@
 }
 
 .owner .message-content p {
-    background-color: aqua;
+    background-color: #7525d9;
+    color: white;
     border-radius: 10px 0px 10px 10px;
 
 }

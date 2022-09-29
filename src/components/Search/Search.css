@@ -64,8 +64,3 @@
     object-fit: cover;
     border-radius: 50%;
 }
-
-.user-chat-info p {
-    margin-top: -20px;
-    color: #ececec;
-}

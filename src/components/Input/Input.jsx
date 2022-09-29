@@ -1,5 +1,5 @@
 import "./Input.css";
-import { IoMdAttach } from "react-icons/io";
+import { IoMdAttach, IoMdSend } from "react-icons/io";
 import { BsFillImageFill } from "react-icons/bs";
 import { useContext, useState } from "react";
 import { ChatContext } from "../../context/ChatContext";
@@ -70,15 +70,15 @@ export const Input = () => {
   }
 
   return (
-    <div className="input">
+    <div className="input-container">
         <input type="text" placeholder="Escribe algo..." onChange={e => setText(e.target.value)} value={text}/>
-        <div className="send">
+        <div className="input-send">
             <span><IoMdAttach/></span>
             <label htmlFor="fileInput">
                 <span><BsFillImageFill/></span>
             </label>
             <input type="file" id="fileInput" onChange={e => setImg(e.target.files[0])}/>
-            <button onClick={handleSubmit}>Enviar</button>
+            <span onClick={handleSubmit}><IoMdSend/></span>
         </div>
     </div>
   )
