@@ -9,5 +9,6 @@ export const Home = () => {
                 <Chat/>
             </div>
         </div>
-    )
+    );
 }
+

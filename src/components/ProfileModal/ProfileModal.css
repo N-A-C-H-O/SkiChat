@@ -1,0 +1,75 @@
+.modal-container {
+    background-color: #00000050;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.modal-centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal {
+    width: 600px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-header button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    justify-content: center;
+}
+
+.modal-body img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto;;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.modal-body label{
+    width: 150px;
+    margin: 25px auto 0;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #3a126c;
+    color: white;
+    transition: all 0.5s;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-body label:hover {
+    background-color: #3b126cbb;
+    cursor: pointer;
+}
