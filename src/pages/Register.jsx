@@ -57,14 +57,14 @@ export const Register = () => {
             } else {
                 await updateProfile(res.user, {
                     displayName: inputName,
-                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=6b98067f-f334-49fb-b82e-44f0bae5ad33",
+                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=365f6dee-883e-4f51-9367-9d8931bfbeac",
                 });
                 
                 await setDoc(doc(db, "users", res.user.uid),{
                     uid: res.user.uid,
                     name: inputName,
                     email: inputEmail,
-                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=6b98067f-f334-49fb-b82e-44f0bae5ad33",
+                    photoURL: "https://firebasestorage.googleapis.com/v0/b/skichat-c5669.appspot.com/o/user_default.jpg?alt=media&token=365f6dee-883e-4f51-9367-9d8931bfbeac",
                 });
     
                 await setDoc(doc(db, "userChats", res.user.uid), {});
