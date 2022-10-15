@@ -40,7 +40,7 @@ export const Input = () => {
           });
         }
       )
-    } else {
+    } else if (text) {
       await updateDoc(doc(db,"chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -69,9 +69,13 @@ export const Input = () => {
     setImg(null);
   }
 
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSubmit();
+  }
+
   return (
     <div className="input-container">
-        <input type="text" placeholder="Escribe algo..." onChange={e => setText(e.target.value)} value={text}/>
+        <input type="text" placeholder="Escribe algo..." onChange={e => setText(e.target.value)} value={text} onKeyDown={handleKey}/>
         <div className="input-send">
             <span><IoMdAttach/></span>
             <label htmlFor="fileInput">

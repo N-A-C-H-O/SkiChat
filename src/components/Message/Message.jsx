@@ -21,7 +21,7 @@ export const Message = ({info}) => {
       </div>
       <div className="message-content">
         {info.img && <img src={info.img} alt="" />}
-        <p>{info.text}</p>
+        {info.text ? <p>{info.text}</p> : <br/>}
       </div>
     </div> 
   )

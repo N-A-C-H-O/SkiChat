@@ -63,7 +63,6 @@ export const Search = () => {
     setUsername("");
   }
 
-
   return (
     <div className="search">
       <div className="search-form">
